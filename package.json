@@ -1,6 +1,6 @@
 {
-  "homepage":"http://app-chistopar.dev-2-tech.ru/",
-  "name": "my-app",
+  "homepage": "http://nikitasolntsev.github.io/chistopar",
+  "name": "chistopar-2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
