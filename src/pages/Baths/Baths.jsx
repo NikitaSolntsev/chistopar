@@ -119,7 +119,7 @@ function Baths(){
 
 		        	<Breadcrumb />
 
-		        	<h1 className="header-title header-title-1">Банные комплексы в Москве</h1>
+		        	<h1 className="header-title header-title-1">Банные комплексы в Москве 12</h1>
 
 		        </div>
 
