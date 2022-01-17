@@ -13,7 +13,7 @@ function App() {
 
       <Header />
       <div className="main-content">
-        <Routes basename={`${process.env.PUBLIC_URL}/`}>
+        <Routes basename=“chistopar”>
           <Route path="/" element={<Home />} exact />
 
           <Route path="/baths" element={<Baths />} />
