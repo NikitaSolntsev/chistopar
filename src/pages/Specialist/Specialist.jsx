@@ -1,13 +1,26 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
+import axios from 'axios';
 
 function Specialist(){
+
+  const { id } = useParams();
+
+  const [specialist, setSpecialist] = React.useState([]);
+
+  React.useEffect(() => {
+    axios.get('https://chistopar.trendtalk.online/api/specialists/'+id).then( ( {data} ) => {
+      setSpecialist(data.specialist);
+    } )
+  }, []);
 
 	return (
     <div className="Specialist">
       
-      Страница Специалиста
-
+      <div className="container">
+        <h1>{specialist.name}</h1>
+      </div>
+      
     </div>
 	);
 }

@@ -24,12 +24,12 @@ function Bath(){
 
 	React.useEffect(() => {
 
-		axios.get('http://45.135.164.103:8080/api/bath/'+id).then( ( {data} ) => {
+		axios.get('https://chistopar.trendtalk.online/api/bath/'+id).then( ( {data} ) => {
 	    	setBath(data.bath);
 	    	setServices(data.services);
 	    } );
 
-	    axios.get('http://45.135.164.103:8080/api/format/'+id).then( ( {data} ) => {
+	    axios.get('https://chistopar.trendtalk.online/api/format/'+id).then( ( {data} ) => {
 
 	    	data.forEach( function(obj, i) {
 

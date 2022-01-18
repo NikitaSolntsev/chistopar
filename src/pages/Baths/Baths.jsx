@@ -10,7 +10,7 @@ function Baths(){
 	const [resp, setResp] = React.useState([]);
 
 	React.useEffect(() => {
-		axios.post('http://45.135.164.103:8080/api/bath?page=1').then( ( {data} ) => {
+		axios.post('https://chistopar.trendtalk.online/api/bath?page=1').then( ( {data} ) => {
 
 			data.data.forEach( function(obj, i) {
 
@@ -119,7 +119,7 @@ function Baths(){
 
 		        	<Breadcrumb />
 
-		        	<h1 className="header-title header-title-1">Банные комплексы в Москве 12</h1>
+		        	<h1 className="header-title header-title-1">Банные комплексы в Москве</h1>
 
 		        </div>
 

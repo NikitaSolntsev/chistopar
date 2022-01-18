@@ -31,7 +31,7 @@ function SpecialistBlock( props ){
         </div>
       </div>
       <div className="card-content item-card-col">
-        <h2 className="name">Павел Стерликов</h2>
+        <h2 className="name">{props.name}</h2>
         <div className="review review-orange">
           <div className="review-tag">
             <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M7 11.189L11.326 13.8L10.178 8.879L14 5.568L8.967 5.141L7 0.5L5.033 5.141L0 5.568L3.822 8.879L2.674 13.8L7 11.189Z" fill="#CF9259"/></g><defs><clipPath id="clip0_1623_8617"><rect width="14" height="14" fill="white" transform="translate(0 0.5)"/></clipPath></defs></svg>
