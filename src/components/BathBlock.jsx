@@ -4,8 +4,6 @@ import img from '../assets/img/photo.jpg';
 
 function BathBlock( props ){
 
-  console.log(props);
-
   const availableTags = [
     {
       'name' : 'Рекомендуем',
