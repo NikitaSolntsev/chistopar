@@ -5,19 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 function CatalogFilter( { props } ){
 
 
-  const dispatch = useDispatch();
-  const cash = useSelector(state => state.cash.cash);
+  // const dispatch = useDispatch();
+  // const cash = useSelector(state => state.cash.cash);
 
   const [discard, setDiscard] = React.useState(0);
   const [activeFilters, setActiveFilters] = React.useState([]);
 
 
   const onFilterItem = (p_index, index) => {
-    dispatch({type: 'ADD_CASH', payload: 5 });
+    // dispatch({type: 'ADD_CASH', payload: 5 });
   }
 
   const onFilterParent = (p_index, index) => {
-     dispatch({type: 'GET_CASH', payload: 5 });
+    // dispatch({type: 'GET_CASH', payload: 5 });
   }
 
 	return (
