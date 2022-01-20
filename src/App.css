@@ -43,6 +43,15 @@ a{
   padding-bottom: 70px;
 }
 
+.common_block{
+  margin: 4.571rem 0;
+}
+.common_title{
+  font-size: 1.7142rem;
+  margin-bottom: 2.28rem;
+  font-weight: 700;
+}
+
 .img-rect{
   position: relative;
   padding-top: 100%;
@@ -275,6 +284,10 @@ a{
   justify-content: center;
   width: 2.8571428571rem;
   height: 2.8571428571rem;
+}
+
+footer{
+  position: relative;
 }
 
 .footer_container{
@@ -814,6 +827,62 @@ footer .list-container .list-footer li a:hover{
   fill: white;
 }
 
+.review-text{
+  margin-bottom: -12px;
+}
+
+.review-text  .review-text__selection{
+  margin-bottom: 12px;
+}
+
+.review_text__label{
+  font-size: 12px;
+  color: #909090;
+  margin-bottom: 12px;
+}
+
+.review-list__items{
+  margin-top: 32px;
+}
+
+.review-big .review-tag{
+  padding: 12px 20px;
+}
+.review-big .review-tag span{
+  font-size: 2.2857rem;
+  margin-left: 12px;
+}
+.review-big .review-tag svg{
+  width: 24px;
+  height: 24px;
+}
+
+.review-list__top{
+  margin-bottom: 12px;
+}
+.review-list .review-item{
+  padding: 32px 0;
+  border-bottom: 1px solid #EDEDED;
+}
+.review-list .review-item:first-child{
+  border-top: 1px solid #EDEDED;
+}
+.review-list .review-item .name{
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.review-list .review-item .date{
+  font-size: 12px;
+  color: #929292;
+}
+.review-list .review-item .rating{
+  margin-top: 16px;
+}
+.review-list .review-item .rating .star.active path{
+  fill: #CF9259;
+} 
+
 .item-card  .tags{
   display: flex;
   flex-wrap: wrap;
@@ -949,6 +1018,131 @@ footer .list-container .list-footer li a:hover{
 .item-card.item-card-specialists .review .review-tag svg path{
   fill: white;
 }
+
+
+
+.Specialist .main-screen{
+  position: relative;
+  padding-bottom: 5.714rem;
+  background-color: #F8F8F8;
+}
+.Specialist .main-screen .bg{
+  display: none;
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.Specialist .main-screen .container{
+  position: relative;
+  z-index: 2;
+}
+.specialist-main{
+
+}
+.specialist__avatar .img-rect{
+  border-radius: 12px;
+}
+.specialist-main .specialist__name{
+  font-size: 2.8571428571rem;
+  color: black;
+  margin-bottom: 20px;
+}
+.line{
+  width: 100%;
+  height: 1px;
+  background: #E9E9E9;
+  padding: 0;
+}
+
+.specialist-bath{
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.8571428571rem;
+}
+.specialist-bath .specialist-bath__logo{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  min-width: 56px;
+  overflow: hidden;
+  border: 1px solid #DBDBDB;
+}
+.specialist-bath .specialist-bath__logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.specialist-main .specifications{
+  margin-bottom: 16px;
+}
+.specialist-main .specifications .item{
+  display: flex;
+  margin-bottom: 8px;
+}
+.specialist-main .specifications .item .left{
+  color: #929292;
+  white-space: nowrap;
+  min-width: 40%;
+  font-size: 1rem;
+  display: flex;
+}
+.specialist-main .specifications .item .left .dots{
+  transform: translateY(14px);
+  border-top: 1px dashed #929292;
+  margin: 0 8px;
+  flex-grow: 3;
+  width: 100%;
+}
+.specialist-main .specifications .item .right{
+  color: black;
+  width: 60%;
+  font-size: 1rem;
+}
+
+.specialist__service-list{
+  margin-bottom: -16px;
+}
+.specialist__service-list .item-service{
+  background: #FFFFFF;
+  border-bottom: 1px solid #E3E3E3;
+  padding: 28px 0;
+}
+.specialist__service-list .item-service:first-child{
+  border-top: 1px solid #E3E3E3;
+}
+.specialist__service-list .item-service .title{
+  font-size: 16px;
+  font-weight: 700;
+}
+.specialist__service-list .item-service .des{
+  font-size: 14px;
+  margin-top: 12px;
+}
+.specialist__service-list .item-service .time{
+  font-size: 14px;
+  padding: 4px 8px;
+  color: #434343;
+  background: #F3F3F3;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+.specialist__service-list .item-service .time svg{
+  margin-right: 4px;
+}
+.specialist__service-list .item-service .price{
+  font-weight: 700;
+  font-size: 20px;
+}
+
+
 
 .wishlist{
   cursor: pointer;
@@ -1131,3 +1325,6 @@ footer .list-container .list-footer li a:hover{
   color: #b37e4d;
 }
 
+.text-gray{
+  color: #929292;
+}
