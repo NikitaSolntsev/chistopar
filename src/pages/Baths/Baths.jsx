@@ -10,6 +10,8 @@ function Baths(){
 
 	const [resp, setResp] = React.useState([]);
 
+	const [isLoaded, setIsLoaded] = React.useState(false);
+
 	const currentPage = useSelector(state => state.baths.currentPage);
 
 	React.useEffect(() => {
@@ -26,8 +28,10 @@ function Baths(){
 			} );
 
 	    	setResp(data);
+	    	setTimeout( setIsLoaded(true) );
+	    	
 	    } )
-	}, [currentPage]);
+	}, [currentPage, isLoaded]);
 
 	//Получаем банные комплексы
 	const items = resp.data;
@@ -56,6 +60,24 @@ function Baths(){
 		}
 
 	}
+
+	const breadcrumb = [
+		{
+			id: 0,
+			title: 'Чистопар',
+			link: '/',
+		},
+		{
+			id: 1,
+			title: 'Москва',
+			link: '/category',
+		},
+		{
+			id: 2,
+			title: 'Банные комплексы',
+			link:'',
+		},
+	]
 
 	const filter = [
 		{
@@ -142,7 +164,7 @@ function Baths(){
 
 		        <div className="container">
 
-		        	<Breadcrumb />
+		        	<Breadcrumb items={breadcrumb} />
 
 		        	<h1 className="header-title header-title-1">Банные комплексы в Москве</h1>
 
@@ -185,17 +207,46 @@ function Baths(){
 		              <Jumbotron />
 
 		              <div className="catalog-list">
-			              {
-					      	items && items.map( (obj) => <BathBlock key={obj.id} {...obj} />)
-					      } 
 
-					      {
-					      	!items && (
+		              	{
 
-					      		<NoResult />
+		              		isLoaded ? (
 
-					      	)
-					      }
+			              		items ? ( 
+			              			
+			              			items.map( (obj) => <BathBlock key={obj.id} {...obj} />) 
+
+			              		) : ( <NoResult /> )
+
+		              		) : (
+
+		              			<div class="ph-item">
+
+					                <div class="ph-col-4">
+					                    <div class="ph-picture" style={{ height : '240px' }}></div>
+					                </div>
+
+					                <div>
+					                    <div class="ph-row">
+						                    <div class="ph-col-6 big"></div>
+						                    <div class="ph-col-4 empty big"></div>
+						                    <div class="ph-col-2 big"></div>
+						                    <div class="ph-col-4"></div>
+						                    <div class="ph-col-8 empty"></div>
+						                    <div class="ph-col-6"></div>
+						                    <div class="ph-col-6 empty"></div>
+						                    <div class="ph-col-12"></div>
+
+						                </div>
+					                </div>
+
+					            </div>
+
+		              		)
+
+		              	}
+
+		              	
 
 		              </div>
 

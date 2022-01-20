@@ -3,6 +3,7 @@ import {Link, useParams} from 'react-router-dom';
 import './Bath.css';
 import img from '../../assets/img/photo.jpg';
 import axios from 'axios';
+import img_company from '../../assets/img/company.jpg';
 
 import { Breadcrumb, ReviewsBlock} from '../../components';
 
@@ -16,12 +17,11 @@ function Bath(){
 
 	const { id } = useParams();
 
-	const [error, setError] = React.useState(null);
-	const [isLoaded, setIsLoaded] = React.useState(false);
-
 	const [bath, setBath] = React.useState([]);
 	const [services, setServices] = React.useState([]);
 	const [forms, setForms] = React.useState([]);
+	const [specification, setSpecification] = React.useState([]);
+	const [tech_specification, setTechSpecification] = React.useState([]);
 	// const [category, setCategory] = React.useState([]);
 
 	const [reviews, setReviews] = React.useState(
@@ -68,6 +68,8 @@ function Bath(){
 		axios.get('https://chistopar.trendtalk.online/api/bath/'+id).then( ( {data} ) => {
 	    	setBath(data.bath);
 	    	setServices(data.services);
+	    	setSpecification(data.specification);
+	    	setTechSpecification(data.tech_specification);
 	    } );
 
 	    axios.get('https://chistopar.trendtalk.online/api/format/'+id).then( ( {data} ) => {
@@ -87,17 +89,37 @@ function Bath(){
 
 	}, []);
 
+	const breadcrumb = [
+	    {
+	      id: 0,
+	      title: 'Чистопар',
+	      link: '/',
+	    },
+	     {
+	      id: 1,
+	      title: 'Москва',
+	      link: '/category',
+	    },
+	    {
+	      id: 2,
+	      title: 'Банные комплексы',
+	      link: '/baths',
+	    },
+	    {
+	      id: 3,
+	      title: bath.name,
+	      link:'',
+	    },
+	];
+
 	return (
 		<div className="complex">
 			<div className="container">
 				<div className="row">
 					<div className="col-md-9 complex-left pr-lg-4">
-						<nav className="breadcrumb breadcrumb-gray">
-							<a href="#">Чистопар</a>&nbsp;/&nbsp;
-							<a href="#">Москва</a>&nbsp;/&nbsp;
-							<a href="#">Банные комплексы</a>&nbsp;/&nbsp;
-							Nordic Spa
-						</nav>
+
+						<Breadcrumb items={breadcrumb} />
+
 						<ul className="complex__quickly-links">
 							<li><a href="#how-to-get">Как добраться</a></li>
 							<li><a href="#visit-format">Формат посещения</a></li>
@@ -356,148 +378,70 @@ function Bath(){
 
 						</div>
 						
-						
-						<div className="complex__block" id="specifications">
-							<h2 className="complex__title">Характеристики</h2>
-							<div className="row complex__props">
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Вместимость</h3>
-										<ul>
-											<li>До 10 человек</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Проживание на территории банного комплекса</h3>
-										<ul>
-											<li>Да</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Индивидуальная парная</h3>
-										<ul>
-											<li>Нет</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Тип парной</h3>
-										<ul>
-											<li>Русская электрокаменка</li>
-											<li>Русская паровая</li>
-											<li>Финская</li>
-											<li>Хамам</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Аква зона</h3>
-										<ul>
-											<li>Бассейн 4х4</li>
-											<li>Купели</li>
-											<li>Чан</li>
-											<li>Обливное устройство</li>
-											<li>Фито-бочка</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Аква зона</h3>
-										<ul>
-											<li>Бассейн 4х4</li>
-											<li>Купели</li>
-											<li>Чан</li>
-											<li>Обливное устройство</li>
-											<li>Фито-бочка</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Аква зона</h3>
-										<ul>
-											<li>Бассейн 4х4</li>
-											<li>Купели</li>
-											<li>Чан</li>
-											<li>Обливное устройство</li>
-											<li>Фито-бочка</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Аква зона</h3>
-										<ul>
-											<li>Бассейн 4х4</li>
-											<li>Купели</li>
-											<li>Чан</li>
-											<li>Обливное устройство</li>
-											<li>Фито-бочка</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div className="complex__block">
-							<h2 className="complex__title">Технические характеристики</h2>
-							<div className="row complex__props complex__props-2">
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Вместимость</h3>
-										<ul>
-											<li>До 10 человек</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Проживание на территории банного комплекса</h3>
-										<ul>
-											<li>Да</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Индивидуальная парная</h3>
-										<ul>
-											<li>Нет</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Тип парной</h3>
-										<ul>
-											<li>Русская электрокаменка</li>
-											<li>Русская паровая</li>
-											<li>Финская</li>
-											<li>Хамам</li>
-										</ul>
-									</div>
-								</div>
-								<div className="col-md-3 col-6">
-									<div className="item-prop">
-										<h3 className="item-prop-title">Аква зона</h3>
-										<ul>
-											<li>Бассейн 4х4</li>
-											<li>Купели</li>
-											<li>Чан</li>
-											<li>Обливное устройство</li>
-											<li>Фито-бочка</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+						{
 
+							specification && (
+
+								<div className="complex__block" id="specifications">
+									<h2 className="complex__title">Характеристики</h2>
+									<div className="row complex__props">
+										{
+											specification && specification.map( (item, index) => (
+
+												<div className="col-md-3 col-6" key={`${item.name}_${item.id}`}>
+													<div className="item-prop">
+														<h3 className="item-prop-title">{item.name}</h3>
+														<ul>
+															<li>Пукнты для хар</li>
+														</ul>
+													</div>
+												</div>
+										
+												
+												) 
+											)
+										}
+										
+									</div>
+								</div>
+
+
+							)
+
+						}
+
+						{
+
+							tech_specification && (
+
+								<div className="complex__block" id="specifications">
+									<h2 className="complex__title">Технические характеристики</h2>
+									<div className="row complex__props">
+										{
+											tech_specification && tech_specification.map( (item, index) => (
+
+												<div className="col-md-3 col-6" key={`${item.name}_${item.id}`}>
+													<div className="item-prop">
+														<h3 className="item-prop-title">{item.name}</h3>
+														<ul>
+															<li>Пукнты для хар</li>
+														</ul>
+													</div>
+												</div>
+										
+												
+												) 
+											)
+										}
+										
+									</div>
+								</div>
+
+
+							)
+
+						}
+					
 						<div className="complex__block">
 							<div className="container">
 
@@ -529,7 +473,7 @@ function Bath(){
 							<div className="row justify-content-between mb-3">
 								<div className="col-auto">
 									<div className="complex__sidebar__logo">
-										{/*<img src="#" alt="" />*/}
+										<img src={img_company} alt="" />
 									</div>
 								</div>
 								<div className="col-auto">
@@ -563,7 +507,7 @@ function Bath(){
 							<div className="price mb-4">от {setupStandartPrice(bath.price)} ₽</div>
 							<div className="buttons">
 								<a href="#" className="btn btn-dark w-100">Забронировать</a>
-								<a href="#" className="btn btn-green w-100 mt-2">{bath.phone} • •</a>
+								<a href="tel:{bath.phone}" className="btn btn-green w-100 mt-2">{bath.phone} • •</a>
 							</div>
 							<a href="#" className="telephone-me">
 								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.675 12.8167C15.65 12.8167 14.6583 12.65 13.7333 12.35C13.4417 12.25 13.1167 12.325 12.8917 12.55L11.5833 14.1917C9.225 13.0667 7.01667 10.9417 5.84167 8.5L7.46667 7.11667C7.69167 6.88333 7.75833 6.55833 7.66667 6.26667C7.35833 5.34167 7.2 4.35 7.2 3.325C7.2 2.875 6.825 2.5 6.375 2.5H3.49167C3.04167 2.5 2.5 2.7 2.5 3.325C2.5 11.0667 8.94167 17.5 16.675 17.5C17.2667 17.5 17.5 16.975 17.5 16.5167V13.6417C17.5 13.1917 17.125 12.8167 16.675 12.8167Z" fill="#37A77F"/></svg>

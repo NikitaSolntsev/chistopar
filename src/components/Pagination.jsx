@@ -9,7 +9,7 @@ function Pagination( {props} ){
   const links = props.links;
 
   const changePage = (page) => {
-    dispatch({type: props.actions.CHANGE_PAGE, page: page });
+    dispatch({type: props.actions.CHANGE_PAGE, page: Number(page) });
   }
 
   const nextPage = () => {
@@ -61,7 +61,7 @@ function Pagination( {props} ){
       return (<li><a
         href={`#page=${item.label}`}
         onClick={ () => changePage(item.label) }
-        className="item"
+        className={ `item ${ Number(item.label) == props.current_page ? 'current' : '' } ` }
         key={`${item.id}_${item.label}`}
       >{item.label}</a></li>);
 

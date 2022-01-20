@@ -4,10 +4,10 @@ import logo from '../assets/img/logo_header.png';
 
 function Header(){
 	return (
-		<header className="header_container">
+		<header className="header_container d-lg-block d-none">
 	        <div className="container container-xxl">
 	          <div className="row align-items-center">
-	            <div className="col-md-1">
+	            <div className="col-md-1 col-2">
 	              <div className="logo header__logo">
 	              	<Link to="/">
 	              		<img src={logo} alt="Чистопар" />

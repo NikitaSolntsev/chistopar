@@ -45,6 +45,19 @@ function Specialists(){
 
 	}
 
+	const breadcrumb = [
+	    {
+	      id: 0,
+	      title: 'Чистопар',
+	      link: '/',
+	    },
+	    {
+	      id: 1,
+	      title: 'Специалисты',
+	      link: '',
+	    },
+	  ]
+
 	const filter = [
 		{
 			id : 0,
@@ -130,7 +143,7 @@ function Specialists(){
 
 		        <div className="container">
 
-		        	<Breadcrumb />
+		        	<Breadcrumb items={breadcrumb} />
 
 		        </div>
 

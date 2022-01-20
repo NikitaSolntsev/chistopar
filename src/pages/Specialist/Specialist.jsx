@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
+import img_avatar from '../../assets/img/specialist.jpg';
+import img_company from '../../assets/img/company.jpg';
 
 import { Breadcrumb, ReviewsBlock, CatalogSort} from '../../components';
 
@@ -49,6 +51,7 @@ function Specialist(){
     
   );
 
+
   React.useEffect(() => {
     axios.get('https://chistopar.trendtalk.online/api/specialists/'+id).then( ( {data} ) => {
       
@@ -58,22 +61,38 @@ function Specialist(){
     } )
   }, []);
 
+  const breadcrumb = [
+    {
+      id: 0,
+      title: 'Чистопар',
+      link: '/',
+    },
+    {
+      id: 1,
+      title: 'Специалисты',
+      link: '/specialists',
+    },
+    {
+      id: 2,
+      title: specialist.name,
+      link:'',
+    },
+  ]
+
 	return (
     <div className="Specialist">
       <div className="main-content">
         <div className="main-screen">
           <div className="container">
-            <nav className="breadcrumb breadcrumb-gray">
-              <a href="#">Чистопар</a>&nbsp;/&nbsp;
-              <a href="#">Специалисты</a>&nbsp;/&nbsp;
-              Иванов Иван Иванович
-            </nav>
+            
+            <Breadcrumb items={breadcrumb} />
+
             <div className="specialist-main mt-4">
               <div className="row">
                 <div className="col-md-4">
                   <div className="specialist__avatar">
                     <div className="img-rect">
-                      <img src="assets/img/photo.jpg" alt="" />
+                      <img src={img_avatar} alt="" />
                     </div>
                   </div>
                 </div>
@@ -143,7 +162,7 @@ function Specialist(){
                               <div className="dots"></div>
                             </div>
                             <div className="right">
-                              Отделочник-универсал с опытом работ более 15 лет без вредных привычек. На все виды работ гарантия. Всегда помогу клиенту с подбором материала с дизайном.21
+                              { specialist.description }
                             </div>
                           </div>
                         </div>
@@ -152,7 +171,7 @@ function Specialist(){
                         <div className="fs-14 text-gray mb-12">Банный комплекс</div>
                         <div className="specialist-bath">
                           <div className="specialist-bath__logo">
-                            <img src="" alt="" />
+                            <img src={img_company} alt="" />
                           </div>
                           <div className="specialist-bath__name ml-lg-3 fw-700">Nordic Spa</div>
                         </div>
