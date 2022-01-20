@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import { cashReducer } from './cashReducer';
-
+import { bathsReducer } from './bathsReducer';
+import { specialistsReducer } from './specialistsReducer';
 
 const rootReducer = combineReducers({
-	cash: cashReducer,
+	baths: bathsReducer,
+	specialists: specialistsReducer,
 });
-
 
 export const store = createStore(rootReducer);
