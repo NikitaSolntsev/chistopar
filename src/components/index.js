@@ -10,6 +10,9 @@ export { default as Pagination } from './Pagination.jsx';
 export { default as CatalogCategory } from './CatalogCategory.jsx';
 export { default as CatalogSort } from './CatalogSort.jsx';
 export { default as CatalogFilter } from './CatalogFilter.jsx';
+export { default as ReviewsBlock } from './ReviewsBlock.jsx';
+
+
 
 
 export { default as NoResult } from './NoResult.jsx';
