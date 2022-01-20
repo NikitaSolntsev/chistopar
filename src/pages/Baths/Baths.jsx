@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Jumbotron from './Jumbotron.jsx';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { BathBlock, Breadcrumb, Pagination, CatalogCategory, CatalogSort, NoResult, CatalogFilter } from '../../components';
 
@@ -9,8 +10,10 @@ function Baths(){
 
 	const [resp, setResp] = React.useState([]);
 
+	const currentPage = useSelector(state => state.baths.currentPage);
+
 	React.useEffect(() => {
-		axios.post('https://chistopar.trendtalk.online/api/bath?page=1').then( ( {data} ) => {
+		axios.post('https://chistopar.trendtalk.online/api/bath?page='+currentPage).then( ( {data} ) => {
 
 			data.data.forEach( function(obj, i) {
 
@@ -24,13 +27,35 @@ function Baths(){
 
 	    	setResp(data);
 	    } )
-	}, []);
+	}, [currentPage]);
 
 	//Получаем банные комплексы
 	const items = resp.data;
 
 	//Получаем сколько всего банных комплексов
 	const total = resp.total;
+
+	const pagination = {
+
+		current_page : resp.current_page,
+		first_page_url : resp.first_page_url,
+		last_page_url : resp.last_page_url,
+
+		from : resp.from,
+		last_page: resp.last_page,
+
+		next_page_url: resp.next_page_url,
+		prev_page_url: resp.prev_page_url,
+
+		links: resp.links,
+
+		actions: {
+			NEXT_PAGE : 'BATHS_NEXT_PAGE',
+			PREV_PAGE : 'BATHS_PREV_PAGE',
+			CHANGE_PAGE : 'BATHS_CHANGE_PAGE',
+		}
+
+	}
 
 	const filter = [
 		{
@@ -175,7 +200,7 @@ function Baths(){
 		              </div>
 
 
-		              <Pagination />
+		              <Pagination props={pagination}  />
 		              
 		            </div>
 		          </div>

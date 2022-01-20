@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Breadcrumb, Pagination, CatalogCategory, CatalogSort, NoResult, SpecialistBlock, CatalogFilter } from '../../components';
 
@@ -8,11 +9,13 @@ function Specialists(){
 
 	const [resp, setResp] = React.useState([]);
 
+	const currentPage = useSelector(state => state.specialists.currentPage);
+
 	React.useEffect(() => {
-		axios.get('https://chistopar.trendtalk.online/api/specialists?page=1').then( ( {data} ) => {
+		axios.get('https://chistopar.trendtalk.online/api/specialists?page='+currentPage).then( ( {data} ) => {
 	    	setResp(data);
 	    } )
-	}, []);
+	}, [currentPage]);
 
 	//Получаем банные комплексы
 	const items = resp.data;
@@ -20,7 +23,27 @@ function Specialists(){
 	//Получаем сколько всего банных комплексов
 	const total = resp.total;
 
-	console.log(items);
+	const pagination = {
+
+		current_page : resp.current_page,
+		first_page_url : resp.first_page_url,
+		last_page_url : resp.last_page_url,
+
+		from : resp.from,
+		last_page: resp.last_page,
+
+		next_page_url: resp.next_page_url,
+		prev_page_url: resp.prev_page_url,
+
+		links: resp.links,
+
+		actions: {
+			NEXT_PAGE : 'SPECIALISTS_NEXT_PAGE',
+			PREV_PAGE : 'SPECIALISTS_PREV_PAGE',
+			CHANGE_PAGE : 'SPECIALISTS_CHANGE_PAGE',
+		}
+
+	}
 
 	const filter = [
 		{
@@ -127,7 +150,7 @@ function Specialists(){
 							<div className="catalog-bar d-flex align-items-center justify-content-between mt-0">
 								<div className="catalog-counter">{total} {getRightEndingFound(total)}</div>
 								
-								<CatalogSort items={[ 'По умолчанию', 'Цена по убыванию', 'Цена по возрастанию', 'Рейтинг по убыванию', 'Рейтинг по возрастанию']} />
+								<CatalogSort items={[ 'По умолчанию', 'По рейтингу', 'По алфавиту от А до Я', 'По алфавиту от Я до Б']} />
 
 							</div>
 							<div className="catalog-list">
@@ -146,7 +169,7 @@ function Specialists(){
 							    
 							</div>
 
-							<Pagination />
+							<Pagination props={pagination}  />
 
 						</div>
 					</div>
