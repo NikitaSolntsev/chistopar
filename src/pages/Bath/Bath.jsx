@@ -4,6 +4,8 @@ import './Bath.css';
 import img from '../../assets/img/photo.jpg';
 import axios from 'axios';
 
+import { Breadcrumb, ReviewsBlock} from '../../components';
+
 function Bath(){
 
 	window.scroll(0, 0);
@@ -21,6 +23,45 @@ function Bath(){
 	const [services, setServices] = React.useState([]);
 	const [forms, setForms] = React.useState([]);
 	// const [category, setCategory] = React.useState([]);
+
+	const [reviews, setReviews] = React.useState(
+	    {
+	      reviews : [
+	        {
+	          id: '1',
+	          specialist_id: '45',
+	          user_id: '23',
+	          advantage: 'Противоречивые получились впечатления о данном месте.<br />Из плюсов:<br />1) потрясающая локация;<br />2) отличный современный дизайн;<br />3) сама идея спа на природе в таком месте супер;<br />',
+	          flaw: 'Из минусов:<br />1) между слотами для записи нет перерывов. Было заплачено за два часа посещения. И это время не только для отдыха, но и для всех приготовлений и сборов;',
+	          rating: '4',
+	          created_at: '2020-05-18 09:28:24',
+	        },
+	        {
+	          id: '2',
+	          specialist_id: '22',
+	          user_id: '23',
+	          advantage: 'Противоречивые получились впечатления о данном месте.<br />Из плюсов:<br />1) потрясающая локация;<br />2) отличный современный дизайн;<br />3) сама идея спа на природе в таком месте супер;<br />',
+	          flaw: 'Из минусов:<br />1) между слотами для записи нет перерывов. Было заплачено за два часа посещения. И это время не только для отдыха, но и для всех приготовлений и сборов;',
+	          rating: '3',
+	          created_at: '2020-12-21 09:28:24',
+	        },
+	        {
+	          id: '2',
+	          specialist_id: '22',
+	          user_id: '23',
+	          advantage: 'Противоречивые получились впечатления о данном месте.<br />Из плюсов:<br />1) потрясающая локация;<br />2) отличный современный дизайн;<br />3) сама идея спа на природе в таком месте супер;<br />',
+	          flaw: 'Из минусов:<br />1) между слотами для записи нет перерывов. Было заплачено за два часа посещения. И это время не только для отдыха, но и для всех приготовлений и сборов;',
+	          rating: '4',
+	          created_at: '2021-07-02 10:28:24',
+	        },
+	      ]
+	    }
+	    
+	  );
+	// let value = JSON.parse('['+bath.media+']');
+	// var mass = JSON.parse(bath.media);
+
+	// console.log(bath.media);
 
 	React.useEffect(() => {
 
@@ -456,6 +497,15 @@ function Bath(){
 								</div>
 							</div>
 						</div>
+
+						<div className="complex__block">
+							<div className="container">
+
+								<ReviewsBlock props={reviews} /> 
+
+							</div>
+						</div>
+
 						<div className="jumbotron jumbotron-green">
 							<div className="row">
 								<div className="col-md-6">
