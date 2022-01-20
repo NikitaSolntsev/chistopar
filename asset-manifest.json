@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/chistopar/static/css/main.caeb06cf.css",
-    "main.js": "/chistopar/static/js/main.9035874a.js",
+    "main.css": "/chistopar/static/css/main.6183c600.css",
+    "main.js": "/chistopar/static/js/main.43a9df92.js",
     "static/js/787.e2a3c4ed.chunk.js": "/chistopar/static/js/787.e2a3c4ed.chunk.js",
     "static/media/photo.jpg": "/chistopar/static/media/photo.e1e6ea439d52e771c900.jpg",
     "static/media/specialist.jpg": "/chistopar/static/media/specialist.8ba473fed64b7a1b424b.jpg",
     "index.html": "/chistopar/index.html",
-    "main.caeb06cf.css.map": "/chistopar/static/css/main.caeb06cf.css.map",
-    "main.9035874a.js.map": "/chistopar/static/js/main.9035874a.js.map",
+    "main.6183c600.css.map": "/chistopar/static/css/main.6183c600.css.map",
+    "main.43a9df92.js.map": "/chistopar/static/js/main.43a9df92.js.map",
     "787.e2a3c4ed.chunk.js.map": "/chistopar/static/js/787.e2a3c4ed.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.caeb06cf.css",
-    "static/js/main.9035874a.js"
+    "static/css/main.6183c600.css",
+    "static/js/main.43a9df92.js"
   ]
 }
