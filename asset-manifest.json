@@ -1,17 +1,21 @@
 {
   "files": {
-    "main.css": "/chistopar/static/css/main.6183c600.css",
-    "main.js": "/chistopar/static/js/main.43a9df92.js",
+    "main.css": "/chistopar/static/css/main.c888a6d8.css",
+    "main.js": "/chistopar/static/js/main.a37a4dfa.js",
     "static/js/787.e2a3c4ed.chunk.js": "/chistopar/static/js/787.e2a3c4ed.chunk.js",
     "static/media/photo.jpg": "/chistopar/static/media/photo.e1e6ea439d52e771c900.jpg",
     "static/media/specialist.jpg": "/chistopar/static/media/specialist.8ba473fed64b7a1b424b.jpg",
+    "static/media/photo-4.jpg": "/chistopar/static/media/photo-4.a90769f3520340a08b8f.jpg",
+    "static/media/photo-2.jpg": "/chistopar/static/media/photo-2.1e9f0cb6aab636acdf43.jpg",
+    "static/media/photo-1.jpg": "/chistopar/static/media/photo-1.fd97fce2d324b20cfedf.jpg",
+    "static/media/photo-3.jpg": "/chistopar/static/media/photo-3.fa29f2184b4ffa51a574.jpg",
     "index.html": "/chistopar/index.html",
-    "main.6183c600.css.map": "/chistopar/static/css/main.6183c600.css.map",
-    "main.43a9df92.js.map": "/chistopar/static/js/main.43a9df92.js.map",
+    "main.c888a6d8.css.map": "/chistopar/static/css/main.c888a6d8.css.map",
+    "main.a37a4dfa.js.map": "/chistopar/static/js/main.a37a4dfa.js.map",
     "787.e2a3c4ed.chunk.js.map": "/chistopar/static/js/787.e2a3c4ed.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6183c600.css",
-    "static/js/main.43a9df92.js"
+    "static/css/main.c888a6d8.css",
+    "static/js/main.a37a4dfa.js"
   ]
 }
