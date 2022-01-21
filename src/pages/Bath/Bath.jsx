@@ -2,6 +2,11 @@ import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import './Bath.css';
 import img from '../../assets/img/photo.jpg';
+import img_1 from '../../assets/img/photo-1.jpg';
+import img_2 from '../../assets/img/photo-2.jpg';
+import img_3 from '../../assets/img/photo-3.jpg';
+import img_4 from '../../assets/img/photo-4.jpg';
+
 import axios from 'axios';
 import img_company from '../../assets/img/company.jpg';
 
@@ -23,6 +28,8 @@ function Bath(){
 	const [specification, setSpecification] = React.useState([]);
 	const [tech_specification, setTechSpecification] = React.useState([]);
 	// const [category, setCategory] = React.useState([]);
+
+	const [isLoaded, setIsLoaded] = React.useState(false);
 
 	const [reviews, setReviews] = React.useState(
 	    {
@@ -70,6 +77,7 @@ function Bath(){
 	    	setServices(data.services);
 	    	setSpecification(data.specification);
 	    	setTechSpecification(data.tech_specification);
+	    	setIsLoaded(true)
 	    } );
 
 	    axios.get('https://chistopar.trendtalk.online/api/format/'+id).then( ( {data} ) => {
@@ -118,7 +126,24 @@ function Bath(){
 				<div className="row">
 					<div className="col-md-9 complex-left pr-lg-4">
 
-						<Breadcrumb items={breadcrumb} />
+						{	
+
+							isLoaded ? (
+
+								<Breadcrumb items={breadcrumb} />
+
+							) : (
+
+								<div className="ph-row" style={ {padding: '13px 0', margin: '0'} }>
+									<div className="ph-col-6 big" style={{ height: '12px' }}></div>
+								</div>
+
+							)
+
+						}
+
+						
+
 
 						<ul className="complex__quickly-links">
 							<li><a href="#how-to-get">Как добраться</a></li>
@@ -128,6 +153,40 @@ function Bath(){
 							<li><a href="#specifications">Характеристики</a></li>
 							<li><a href="#answers">Ответы на частые вопросы</a></li>
 						</ul>
+						<div className="complex__block pt-0">
+							<div className="complex__gallery">
+								<div className="complex__gallery__main">
+									<div className="complex__gallery__item">
+										<img src={img} alt="" />
+										<div className="panel">
+											<div className="item">
+												11 фото
+											</div>
+											<div className="item">
+												Видео
+											</div>
+										</div>
+									</div>
+								</div>
+								<div className="complex__gallery__items">
+									<div className="complex__gallery__item">
+										<img src={img_1} alt="" />
+									</div>
+									<div className="complex__gallery__item">
+										<img src={img_2} alt="" />
+									</div>
+									<div className="complex__gallery__item">
+										<img src={img_3} alt="" />
+									</div>
+									<div className="complex__gallery__item">
+										<img src={img_4} alt="" />
+										<div className="play">
+											<svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.726 9.66395L1.54866 1.01631C0.883652 0.579895 1.86115e-06 1.05694 1.82638e-06 1.85235L1.07038e-06 19.1476C1.03561e-06 19.9431 0.883653 20.4201 1.54866 19.9837L14.726 11.336C15.3278 10.9411 15.3278 10.0589 14.726 9.66395Z" fill="white"/></svg>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div className="complex__tiles">
 							<div className="item-col">
 								<div className="item__container">
@@ -470,54 +529,121 @@ function Bath(){
 					</div>
 					<div className="col-md-3 complex-right">
 						<div className="complex__sidebar">
-							<div className="row justify-content-between mb-3">
-								<div className="col-auto">
-									<div className="complex__sidebar__logo">
-										<img src={img_company} alt="" />
-									</div>
-								</div>
-								<div className="col-auto">
-									<div className="d-flex align-items-center">
-										<div className="wishlist mr-2">
-											<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M8.99961 11.6998L3.59961 17.0998V1.7998H14.3996V17.0998L8.99961 11.6998Z" stroke="#DCDCDC" strokeWidth="2" strokeLinejoin="round"/></g><defs><clipPath id="clip0_1623_7630"><rect width="18" height="18" fill="white"/></clipPath></defs></svg>
+
+							{
+
+								isLoaded ? (
+
+		                        	<div className="wrapper">
+										<div className="row justify-content-between mb-3">
+											<div className="col-auto">
+												<div className="complex__sidebar__logo">
+													<img src={img_company} alt="" />
+												</div>
+											</div>
+											<div className="col-auto">
+												<div className="d-flex align-items-center">
+													<div className="wishlist mr-2">
+														<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M8.99961 11.6998L3.59961 17.0998V1.7998H14.3996V17.0998L8.99961 11.6998Z" stroke="#DCDCDC" strokeWidth="2" strokeLinejoin="round"/></g><defs><clipPath id="clip0_1623_7630"><rect width="18" height="18" fill="white"/></clipPath></defs></svg>
+													</div>
+													<div className="download">
+														<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 11V17H16V11" stroke="#DCDCDC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 13V3" stroke="#DCDCDC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M5 5L9 1L13 5" stroke="#DCDCDC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+													</div>
+												</div>
+											</div>
 										</div>
-										<div className="download">
-											<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 11V17H16V11" stroke="#DCDCDC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 13V3" stroke="#DCDCDC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M5 5L9 1L13 5" stroke="#DCDCDC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+
+										<div className="title mb-2">
+											{bath.name}
 										</div>
+										<div className="place mb-3">
+											<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.5C6.0975 1.5 3.75 3.8475 3.75 6.75C3.75 10.6875 9 16.5 9 16.5C9 16.5 14.25 10.6875 14.25 6.75C14.25 3.8475 11.9025 1.5 9 1.5ZM5.25 6.75C5.25 4.68 6.93 3 9 3C11.07 3 12.75 4.68 12.75 6.75C12.75 8.91 10.59 12.1425 9 14.16C7.44 12.1575 5.25 8.8875 5.25 6.75Z" fill="#37A77F"/><path d="M9 8.625C10.0355 8.625 10.875 7.78553 10.875 6.75C10.875 5.71447 10.0355 4.875 9 4.875C7.96447 4.875 7.125 5.71447 7.125 6.75C7.125 7.78553 7.96447 8.625 9 8.625Z" fill="#37A77F"/></svg>
+											<span>{bath.address}</span>
+										</div>
+										<div className="review">
+											<div className="review-tag">
+												<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M7 11.189L11.326 13.8L10.178 8.879L14 5.568L8.967 5.141L7 0.5L5.033 5.141L0 5.568L3.822 8.879L2.674 13.8L7 11.189Z" fill="#FFFFFF"/></g><defs><clipPath id="clip0_1623_8617"><rect width="14" height="14" fill="white" transform="translate(0 0.5)"/></clipPath></defs></svg>
+												<span>4.3</span>
+											</div>
+											<div className="review-count">
+												12 отзывов
+											</div>
+										</div>
+										<hr />
+										<div className="price mb-4">от {setupStandartPrice(bath.price)} ₽</div>
+										<div className="buttons">
+											<a href="#" className="btn btn-dark w-100">Забронировать</a>
+											<a href="tel:{bath.phone}" className="btn btn-green w-100 mt-2">{bath.phone} • •</a>
+										</div>
+										<a href="#" className="telephone-me">
+											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.675 12.8167C15.65 12.8167 14.6583 12.65 13.7333 12.35C13.4417 12.25 13.1167 12.325 12.8917 12.55L11.5833 14.1917C9.225 13.0667 7.01667 10.9417 5.84167 8.5L7.46667 7.11667C7.69167 6.88333 7.75833 6.55833 7.66667 6.26667C7.35833 5.34167 7.2 4.35 7.2 3.325C7.2 2.875 6.825 2.5 6.375 2.5H3.49167C3.04167 2.5 2.5 2.7 2.5 3.325C2.5 11.0667 8.94167 17.5 16.675 17.5C17.2667 17.5 17.5 16.975 17.5 16.5167V13.6417C17.5 13.1917 17.125 12.8167 16.675 12.8167Z" fill="#37A77F"/></svg>
+											Перезвоните мне
+										</a>
 									</div>
-								</div>
-							</div>
-							<div className="title mb-2">
-								{bath.name}
-							</div>
-							<div className="place mb-3">
-								<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.5C6.0975 1.5 3.75 3.8475 3.75 6.75C3.75 10.6875 9 16.5 9 16.5C9 16.5 14.25 10.6875 14.25 6.75C14.25 3.8475 11.9025 1.5 9 1.5ZM5.25 6.75C5.25 4.68 6.93 3 9 3C11.07 3 12.75 4.68 12.75 6.75C12.75 8.91 10.59 12.1425 9 14.16C7.44 12.1575 5.25 8.8875 5.25 6.75Z" fill="#37A77F"/><path d="M9 8.625C10.0355 8.625 10.875 7.78553 10.875 6.75C10.875 5.71447 10.0355 4.875 9 4.875C7.96447 4.875 7.125 5.71447 7.125 6.75C7.125 7.78553 7.96447 8.625 9 8.625Z" fill="#37A77F"/></svg>
-								<span>{bath.address}</span>
-							</div>
-							<div className="review">
-								<div className="review-tag">
-									<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M7 11.189L11.326 13.8L10.178 8.879L14 5.568L8.967 5.141L7 0.5L5.033 5.141L0 5.568L3.822 8.879L2.674 13.8L7 11.189Z" fill="#FFFFFF"/></g><defs><clipPath id="clip0_1623_8617"><rect width="14" height="14" fill="white" transform="translate(0 0.5)"/></clipPath></defs></svg>
-									<span>4.3</span>
-								</div>
-								<div className="review-count">
-									12 отзывов
-								</div>
-							</div>
-							<hr />
-							<div className="price mb-4">от {setupStandartPrice(bath.price)} ₽</div>
-							<div className="buttons">
-								<a href="#" className="btn btn-dark w-100">Забронировать</a>
-								<a href="tel:{bath.phone}" className="btn btn-green w-100 mt-2">{bath.phone} • •</a>
-							</div>
-							<a href="#" className="telephone-me">
-								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.675 12.8167C15.65 12.8167 14.6583 12.65 13.7333 12.35C13.4417 12.25 13.1167 12.325 12.8917 12.55L11.5833 14.1917C9.225 13.0667 7.01667 10.9417 5.84167 8.5L7.46667 7.11667C7.69167 6.88333 7.75833 6.55833 7.66667 6.26667C7.35833 5.34167 7.2 4.35 7.2 3.325C7.2 2.875 6.825 2.5 6.375 2.5H3.49167C3.04167 2.5 2.5 2.7 2.5 3.325C2.5 11.0667 8.94167 17.5 16.675 17.5C17.2667 17.5 17.5 16.975 17.5 16.5167V13.6417C17.5 13.1917 17.125 12.8167 16.675 12.8167Z" fill="#37A77F"/></svg>
-								Перезвоните мне
-							</a>
+
+								) : (
+
+									<div className="wrapper">
+										<div className="row justify-content-between mb-3">
+											<div className="col-auto">
+												<div className="complex__sidebar__logo">
+													<div className="ph-avatar"></div>
+												</div>
+											</div>
+										</div>
+										<div>
+				                            <div className="ph-row">
+				                            	<div className="ph-col-8 big"></div>
+				                                <div className="ph-col-12"></div>
+				                                <div className="ph-col-10"></div>
+				                                <div className="ph-col-4 big"></div>
+				                            </div>
+				                        </div>
+				                        <hr />
+				                        <div>
+				                            <div className="ph-row">
+				                            	<div className="ph-col-6 big"></div>
+				                                <div className="ph-col-12 big"></div>
+				                                <div className="ph-col-12 big"></div>
+				                                <div className="ph-col-12 empty"></div>
+				                                <div className="ph-col-8"></div>
+				                            </div>
+				                        </div>
+		                        	</div>
+
+
+
+								)
+
+							}
+
 						</div>
-						<div className="info">
-							<div>Всю информацию мы берем с сайта банного комплекса. Если нашли ошибку, напишите на почту</div>
-							<a href="mailto:example@mail.ru" className="link-orange">example@mail.ru</a>
-						</div>
+
+						{
+
+							isLoaded ? (
+
+								<div className="info">
+									<div>Всю информацию мы берем с сайта банного комплекса. Если нашли ошибку, напишите на почту</div>
+									<a href="mailto:example@mail.ru" className="link-orange">example@mail.ru</a>
+								</div>
+
+							) : (
+
+								<div className="info">
+		                            <div className="ph-row">
+		                            	<div className="ph-col-10"></div>
+		                                <div className="ph-col-10"></div>
+		                                <div className="ph-col-8 empty"></div>
+		                                <div className="ph-col-6"></div>
+		                            </div>
+				                </div>
+
+							)
+
+						}
+
+						
 					</div>
 				</div>
 			</div>

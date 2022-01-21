@@ -28,10 +28,38 @@ function Baths(){
 			} );
 
 	    	setResp(data);
-	    	setTimeout( setIsLoaded(true) );
+	    	setIsLoaded(true)
 	    	
 	    } )
 	}, [currentPage, isLoaded]);
+
+	// const sort = [ 
+	// 	{
+	// 		name : 'По умолчанию',
+	// 		value : 'Цена по убыванию',
+	// 		post : '',
+	// 	},
+	// 	{
+	// 		name : 'По умолчанию',
+	// 		value : 'Цена по убыванию',
+	// 		post : '',
+	// 	},
+	// 	{
+	// 		name : 'По умолчанию',
+	// 		value : 'Цена по возрастанию',
+	// 		post : '',
+	// 	},
+	// 	{
+	// 		name : 'По умолчанию',
+	// 		value : 'Рейтинг по убыванию',
+	// 		post : '',
+	// 	},
+	// 	{
+	// 		name : 'По умолчанию',
+	// 		value : 'Рейтинг по возрастанию',
+	// 		post : '',
+	// 	},
+	// ];
 
 	//Получаем банные комплексы
 	const items = resp.data;
@@ -220,22 +248,22 @@ function Baths(){
 
 		              		) : (
 
-		              			<div class="ph-item">
+		              			<div className="ph-item mt-3">
 
-					                <div class="ph-col-4">
-					                    <div class="ph-picture" style={{ height : '240px' }}></div>
+					                <div className="ph-col-4">
+					                    <div className="ph-picture" style={{ height : '240px' }}></div>
 					                </div>
 
 					                <div>
-					                    <div class="ph-row">
-						                    <div class="ph-col-6 big"></div>
-						                    <div class="ph-col-4 empty big"></div>
-						                    <div class="ph-col-2 big"></div>
-						                    <div class="ph-col-4"></div>
-						                    <div class="ph-col-8 empty"></div>
-						                    <div class="ph-col-6"></div>
-						                    <div class="ph-col-6 empty"></div>
-						                    <div class="ph-col-12"></div>
+					                    <div className="ph-row">
+						                    <div className="ph-col-6 big"></div>
+						                    <div className="ph-col-4 empty big"></div>
+						                    <div className="ph-col-2 big"></div>
+						                    <div className="ph-col-4"></div>
+						                    <div className="ph-col-8 empty"></div>
+						                    <div className="ph-col-6"></div>
+						                    <div className="ph-col-6 empty"></div>
+						                    <div className="ph-col-12"></div>
 
 						                </div>
 					                </div>
